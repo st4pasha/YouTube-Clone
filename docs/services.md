@@ -1,18 +1,4 @@
-# YouTube-clone
-
-## Возможности ютуб-клона: 
-
-1) Просматривать видео, ставить лайки, писать комментарии, подписаться на канал:
-    * Каждое видео имеет количество просмотров, комментарий, лайков.
-
-2) Можно создать ютуб-канал:
-    * Каждый ютуб канал имеет количество подписчиков, вкладку видео(там будут выложенные видео или же ничего)
-
-3) Лента рекомендация ютуба
-    * Лента сортируется по количеству просмтров, чем больше просмотров у видео тем выше оно в ленте
-
-
-## Сервисы
+# Сервисы
 
 1) Сервис `watch`, где мы просто смотрим видео
 
@@ -79,33 +65,38 @@
     "views": 120,
     "likes": 15
     }
-    ```
 
-* GET /watch/channel - посмотреть все видео на канале
 
-    ```sql
+* POST /watch/likes/channel_id/video_id - поставить лайк на видео
+
+    ``` sql
     Request: None
 
-    Response: 200 OK
+    Response: 201 Created
 
-    [
     {
-        "id": 1,
-        "channel_id": 1,
-        "title": "Мой первый влог",
-        "description": "Описание ролика",
-        "views": 120,
-        "likes": 15
-    }
-    ]
+        "success": true
+    }  
     ```
+* POST /watch/subscribe/channel_id - подписаться на канал
 
+    ``` sql
+        Request: None
+
+        Response: 201 Created
+        
+        {
+            "success": true
+        }
+
+    ```
 
 В сервисе watch ничего не хранится, все получается путем отправкеи запроса в сервис studio
 
 2) Сервис studio, на нем будет управление каналами, добавление видео, хранение видео
     
 * Фичи:
+
     1) Фича `channel`:
 
 * POST /channel - Создать канал
@@ -123,6 +114,13 @@
             "followers":, 50000000
         }
         ```
+* POST /channel/subscribe/channel_id - подписаться на канал 
+
+    ```sql 
+        Request: None
+
+        Response: 201 Created
+    ```
 
 * DELETE /channel/channel_id - Удалить канал
 
@@ -146,6 +144,12 @@
         "views":, 0,
         "likes":, 0
     }
+    ```
+* POST /video/like/channel_id/video_id - ставит лайк на видео 
+
+    ``` sql 
+        Request: None
+        Response: 201 Created
     ```
 
 * GET /video/channel_id/video_id - отдает пользователю определенное видео на определенном канале
@@ -209,47 +213,8 @@
 
 * DELETE /video/channel_id/video_id - удаляет определенное видео на определенном канале
     
-
-    Response: None
-    Request: 204 No content
-
-## Структуры 
-
-1) ``` sql
-    Video {
-    id int
-    title string
-    description string
-    views int
-    likes int
-    }
+    ``` sql
+        Response: None
+        Request: 204 No content
     ```
 
-2) ``` sql
-    Channel {
-    id int
-    channel_name string
-    followers int
-    }
-    ```
-
-
-## Таблицы 
-
-1) ```sql
-    Table videos {
-    id int
-    title string
-    description string
-    views int
-    likes int
-    } 
-    ```
-
-2) ``` sql
-    Table channels {
-    id int
-    channel_name string
-    followers int
-    } 
-    ```
