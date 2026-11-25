@@ -4,7 +4,7 @@
 
     Сервис `watch` будет посылать запрос к сервису `studio`, чтобы получить определенные видео или же все
 
-* GET /watch - лента рекомендаций 
+* GET /app/v1/watch - лента рекомендаций 
 
     Request: None
 
@@ -31,7 +31,7 @@
     ]
     ```
 
-* GET /watch/channel_id - посмотреть все видео на канале
+* GET app/v1/watch/channel_id - посмотреть все видео на канале
 
     ```sql
     Request: None
@@ -50,7 +50,7 @@
     ]
     ```
 
-* GET /watch/channel_id/video_id - посмотреть определенное видео на канале
+* GET app/v1/watch/channel_id/video_id - посмотреть определенное видео на канале
 
     ```sql
     Request: None
@@ -67,7 +67,7 @@
     }
 
 
-* POST /watch/likes/channel_id/video_id - поставить лайк на видео
+* POST app/v1/watch/likes/channel_id/video_id - поставить лайк на видео
 
     ``` sql
     Request: None
@@ -78,7 +78,7 @@
         "success": true
     }  
     ```
-* POST /watch/subscribe/channel_id - подписаться на канал
+* POST app/v1/watch/subscribe/channel_id - подписаться на канал
 
     ``` sql
         Request: None

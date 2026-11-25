@@ -1,6 +1,6 @@
 # HTTP-Контракты
 
-1) GET /watch
+1) GET /app/v1/watch
 
 * Watch отправляет запрос в Studio: GET /video
 
@@ -28,7 +28,7 @@
     ]
 ```
 
-2) GET /watch/{channel_id}
+2) GET app/v1/watch/{channel_id}
 
 * Watch отправляет запрос в Studio: GET /video/{channel_id}
 
@@ -47,7 +47,7 @@
     ]
 ```
 
-3) GET /watch/{channel_id}/{video_id} 
+3) GET app/v1/watch/{channel_id}/{video_id} 
 
 * Watch отправляет запрос в Studio: GET /video/{channel_id}/{video_id}
 
@@ -65,7 +65,7 @@
     }
 ```
 
-4) POST /watch/likes/{channel_id}/{video_id}
+4) POST app/v1/watch/likes/{channel_id}/{video_id}
 
 * Watch отправляет запрос в Studio: POST /video/like/{channel_id}/{video_id}
 
@@ -78,7 +78,7 @@
     }  
 ``` 
 
-5) POST /watch/subscribe/{channel_id}
+5) POST app/v1/watch/subscribe/{channel_id}
 
 * Watch отправляет запрос в Studio: POST /channel/subscribe/{channel_id}
 
